@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Mi Sistema{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+    {% block nav %}
+        <a href="{{ url_for('users.index') }}">Inicio</a>
+        {% if session.get('user_id') %}
+            | <a href="{{ url_for('users.profile', id=session['user_id']) }}">Mi perfil</a>
+            | Hola, {{ session['username']|capitalize }}
+            | <a href="{{ url_for('users.logout') }}">Cerrar sesión</a>
+        {% else %}
+            | <a href="{{ url_for('users.login') }}">Iniciar sesión</a>
+            | <a href="{{ url_for('users.register') }}">Registrarse</a>
+        {% endif %}
+        {% endblock %}
+    </nav>
+
+
+    {% include "mensajes.html" %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>
