@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Editar perfil{% endblock %}
+
+{% block content %}
+<h1>Editar perfil</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    {% for field in [form.username, form.email] %}
+        <p>
+            {{ field.label }}<br>
+            {{ field() }}
+            {% for error in field.errors %}
+                <br><span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+    {% endfor %}
+
+    {{ form.submit() }}
+</form>
+<p><a href="{{ url_for('users.profile', id=user.id) }}">Cancelar</a></p>
+{% endblock %}
