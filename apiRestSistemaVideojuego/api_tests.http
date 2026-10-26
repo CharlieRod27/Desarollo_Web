@@ -1,0 +1,73 @@
+@base = http://localhost:8000/api
+
+### 1. GET lista de juegos -> 200 OK
+GET {{base}}/juegos
+
+### 2. POST crear juego -> 201 Created
+# @name crearJuego
+POST {{base}}/juegos
+Content-Type: application/json
+
+{
+  "nombre": "Zelda Tears of the Kingdom",
+  "descripcion": "Aventura de mundo abierto",
+  "precio": 1299.50
+}
+
+### 3. GET un juego (usa el id del juego recién creado) -> 200 OK
+GET {{base}}/juegos/{{crearJuego.response.body.$.id}}
+
+### 4. PUT modificar ese juego -> 200 OK
+PUT {{base}}/juegos/{{crearJuego.response.body.$.id}}
+Content-Type: application/json
+
+{
+  "nombre": "Zelda TOTK (editado)",
+  "descripcion": "Descripción actualizada",
+  "precio": 999
+}
+
+### 5. DELETE eliminar ese juego -> 204 No Content
+DELETE {{base}}/juegos/{{crearJuego.response.body.$.id}}
+
+### ---------- PRUEBAS DE ERROR ----------
+
+### 6. GET juego que no existe -> 404 Not Found
+GET {{base}}/juegos/9999
+
+### 7. PUT juego que no existe -> 404 Not Found
+PUT {{base}}/juegos/9999
+Content-Type: application/json
+
+{
+  "nombre": "X",
+  "descripcion": "Y",
+  "precio": 10
+}
+
+### 8. DELETE juego que no existe -> 404 Not Found
+DELETE {{base}}/juegos/9999
+
+### 9. POST con campos faltantes -> 400 Bad Request
+POST {{base}}/juegos
+Content-Type: application/json
+
+{
+  "nombre": "Solo nombre"
+}
+
+### 10. POST con precio inválido (texto) -> 400 Bad Request
+POST {{base}}/juegos
+Content-Type: application/json
+
+{
+  "nombre": "Juego malo",
+  "descripcion": "Precio no es número",
+  "precio": "gratis"
+}
+
+### 11. POST con cuerpo que no es JSON -> 400 Bad Request
+POST {{base}}/juegos
+Content-Type: text/plain
+
+esto no es json

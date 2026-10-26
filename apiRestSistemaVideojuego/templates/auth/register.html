@@ -1,0 +1,27 @@
+{% extends "maestra.html" %}
+{% block titulo %}Registro{% endblock %}
+{% block contenido %}
+<section class="section">
+  <div class="columns"><div class="column is-half">
+    <h3 class="is-size-3">Crear cuenta</h3>
+    <form method="post">
+      {{ form.hidden_tag() }}
+
+      <label>{{ form.username.label.text }}</label>
+      {{ form.username(class="input") }}
+      {% for e in form.username.errors %}<p class="help is-danger">{{ e }}</p>{% endfor %}
+
+      <label>{{ form.password.label.text }}</label>
+      {{ form.password(class="input") }}
+      {% for e in form.password.errors %}<p class="help is-danger">{{ e }}</p>{% endfor %}
+
+      <label>{{ form.password2.label.text }}</label>
+      {{ form.password2(class="input") }}
+      {% for e in form.password2.errors %}<p class="help is-danger">{{ e }}</p>{% endfor %}
+
+      {{ form.submit(class="button is-success mt-2") }}
+    </form>
+    <p class="mt-3">¿Ya tienes cuenta? <a href="{{ url_for('auth.login') }}">Ingresar</a></p>
+  </div></div>
+</section>
+{% endblock %}
