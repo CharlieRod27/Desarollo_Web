@@ -1,0 +1,45 @@
+﻿python : test_delete_204 (test_api.APITestCase.test_delete_204) ... ok
+En línea: 1 Carácter: 1
++ python -m unittest discover -v tests 2>&1 | Out-File -Encoding utf8 r ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_delete_204...ete_204) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_delete_inexistente_404 (test_api.APITestCase.test_delete_inexistente_404) ... ok
+test_get_juego_inexistente_404 (test_api.APITestCase.test_get_juego_inexistente_404) ... ok
+test_get_juego_por_id_200 (test_api.APITestCase.test_get_juego_por_id_200) ... ok
+test_get_lista_200 (test_api.APITestCase.test_get_lista_200) ... ok
+test_get_lista_contenido (test_api.APITestCase.test_get_lista_contenido) ... ok
+test_post_campos_faltantes_400 (test_api.APITestCase.test_post_campos_faltantes_400) ... ok
+test_post_crea_juego_201 (test_api.APITestCase.test_post_crea_juego_201) ... 
+C:\Users\arech\OneDrive\Documents\Desarollo_Web\sistema_juegos\cuatro\Lib\site-packages\werkzeug\routing\rules.py:836: 
+ResourceWarning: unclosed database in <sqlite3.Connection object at 0x00000271FD0C0310>
+  code = compile(module, "<werkzeug routing>", "exec")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\Users\arech\OneDrive\Documents\Desarollo_Web\sistema_juegos\cuatro\Lib\site-packages\werkzeug\routing\rules.py:836: 
+ResourceWarning: unclosed database in <sqlite3.Connection object at 0x00000271FD0C08B0>
+  code = compile(module, "<werkzeug routing>", "exec")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_post_cuerpo_no_json_400 (test_api.APITestCase.test_post_cuerpo_no_json_400) ... ok
+test_post_precio_invalido_400 (test_api.APITestCase.test_post_precio_invalido_400) ... ok
+test_put_actualiza_200 (test_api.APITestCase.test_put_actualiza_200) ... ok
+test_put_inexistente_404 (test_api.APITestCase.test_put_inexistente_404) ... ok
+test_actualizar_juego (test_models.ModelTestCase.test_actualizar_juego) ... ok
+test_crear_juego (test_models.ModelTestCase.test_crear_juego) ... ok
+test_eliminar_juego (test_models.ModelTestCase.test_eliminar_juego) ... ok
+test_juego_guarda_los_campos (test_models.ModelTestCase.test_juego_guarda_los_campos) ... ok
+test_password_se_guarda_como_hash (test_models.ModelTestCase.test_password_se_guarda_como_hash) ... ok
+test_username_es_unico (test_models.ModelTestCase.test_username_es_unico) ... ok
+test_inicio_redirige_a_juegos (test_routes.RoutesTestCase.test_inicio_redirige_a_juegos) ... ok
+test_juegos_requiere_login (test_routes.RoutesTestCase.test_juegos_requiere_login) ... ok
+test_login_correcto_permite_ver_juegos (test_routes.RoutesTestCase.test_login_correcto_permite_ver_juegos) ... ok
+test_login_incorrecto_no_entra (test_routes.RoutesTestCase.test_login_incorrecto_no_entra) ... ok
+test_logout_cierra_sesion (test_routes.RoutesTestCase.test_logout_cierra_sesion) ... ok
+test_registro_crea_usuario (test_routes.RoutesTestCase.test_registro_crea_usuario) ... ok
+test_ruta_inexistente_404 (test_routes.RoutesTestCase.test_ruta_inexistente_404) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.428s
+
+OK
